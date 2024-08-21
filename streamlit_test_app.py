@@ -74,12 +74,19 @@ tabla_calor = df_mapa.pivot_table(index='DIA_SEMANA', columns='HORA', values='to
 # Plots
 
 # Heatmap
-def make_heatmap(input_color_theme):
-    heatmap = px.imshow(df_mapa, 
-               labels=dict(x="Hora del Día", y="Día de la Semana", color="Cantidad de Delitos"),
-               x=tabla_calor.columns, 
-               y=tabla_calor.index,
-               color_continuous_scale=input_color_theme)
+def make_heatmap(input_df, input_y, input_x, input_color_theme):
+    heatmap = alt.Chart(input_df).mark_rect().encode(
+            y=alt.Y(f'{input_y}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
+            x=alt.X(f'{input_x}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
+            color=alt.Color(f'max({input_color}):Q',
+                             legend=None,
+                             scale=alt.Scale(scheme=input_color_theme)),
+            stroke=alt.value('black'),
+            strokeWidth=alt.value(0.25),
+        ).properties(width=900
+        ).configure_axis(
+        labelFontSize=12,
+        titleFontSize=12
 
 # Personalizar el gráfico
     heatmap.update_layout(
@@ -166,7 +173,7 @@ with col[1]:
 
     st.markdown('#### Delitos según día y hora')
     
-    heatmap = make_heatmap(selected_color_theme)
+    heatmap = make_heatmap(df_mapa, 'DIA_SEMANA', 'HORA', 'total_delitos', selected_color_theme)
     st.plotly_chart(heatmap, use_container_width=True)
 
     bars = make_bars(df_uy2, selected_color_theme)
