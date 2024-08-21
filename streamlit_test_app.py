@@ -74,7 +74,7 @@ tabla_calor = df_mapa.pivot_table(index='DIA_SEMANA', columns='HORA', values='to
 # Plots
 
 # Heatmap
-def make_heatmap(input_df, input_y, input_x, input_color_theme):
+def make_heatmap(input_df, input_y, input_x, input_color, input_color_theme):
     heatmap = alt.Chart(input_df).mark_rect().encode(
             y=alt.Y(f'{input_y}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
             x=alt.X(f'{input_x}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
@@ -88,11 +88,6 @@ def make_heatmap(input_df, input_y, input_x, input_color_theme):
         labelFontSize=12,
         titleFontSize=12
         )
-# Personalizar el gráfico
-    heatmap.update_layout(
-        title="Mapa de Calor de Delitos por Día de la Semana y Hora",
-        xaxis_nticks=24  # Ajustar para mostrar todas las horas
-)
     return heatmap
 
 # Choropleth map
