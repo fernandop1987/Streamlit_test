@@ -6,6 +6,7 @@ import geopandas as gpd
 import altair as alt
 import plotly.express as px
 import shapely
+from shapely import wkt
 
 #######################
 # Page configuration
@@ -21,9 +22,17 @@ alt.themes.enable("dark")
 #######################
 # Load data
 df_reshaped = pd.read_csv('data/us-population-2010-2019-reshaped.csv')
-df_uy = gpd.read_csv('data/geo_filtrado.csv')
+
+# Cargar el archivo CSV usando pandas
+df_uy = pd.read_csv('data/geo_filtrado.csv')
 
 
+# Convertir la columna 'geo' de WKT a objetos geométricos
+df_uy['geo'] = df_uy['geo'].apply(wkt.loads)
+
+# Luego, crear el GeoDataFrame
+df_uy2 = gpd.GeoDataFrame(df_uy, geometry='geo')
+df_uy2.set_crs(epsg=4326, inplace=True)
 
 #######################
 # Sidebar
@@ -115,7 +124,7 @@ col = st.columns((1, 6, 1), gap='medium')
 with col[1]:
     st.markdown('#### Delitos según barrios de Montevideo')
     
-    choropleth = make_choropleth(df_uy)
+    choropleth = make_choropleth(df_uy2)
     st.plotly_chart(choropleth, use_container_width=True)
     
     heatmap = make_heatmap(df_reshaped, 'year', 'states', 'population', selected_color_theme)
