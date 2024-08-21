@@ -59,14 +59,14 @@ def make_heatmap(input_df, input_y, input_x, input_color, input_color_theme):
     return heatmap
 
 # Choropleth map
-def make_choropleth(input_df, input_color_theme):
+def make_choropleth(input_df):
     ### $
     choropleth = px.choropleth_mapbox(input_df, geojson=input_df.__geo_interface__, 
                                       locations='BARRIO_MONTEVIDEO',  
                                       featureidkey="properties.BARRIO_MONTEVIDEO", 
                                       color='ratio',  
                                       mapbox_style="carto-positron",
-                                      color_continuous_scale=input_color_theme,
+                                      color_continuous_scale="Reds",
                                       zoom=10,
                                       center={"lat": -34.9011, "lon": -56.1645}, 
                                       opacity=0.8,
@@ -103,7 +103,7 @@ col = st.columns((1, 6, 1), gap='medium')
 with col[1]:
     st.markdown('#### Delitos según barrios de Montevideo')
     
-    choropleth = make_choropleth(df_uy, selected_color_theme)
+    choropleth = make_choropleth(df_uy)
     st.plotly_chart(choropleth, use_container_width=True)
     
     heatmap = make_heatmap(df_reshaped, 'year', 'states', 'population', selected_color_theme)
