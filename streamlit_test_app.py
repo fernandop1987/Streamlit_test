@@ -75,7 +75,7 @@ tabla_calor = df_mapa.pivot_table(index='DIA_SEMANA', columns='HORA', values='to
 
 # Heatmap
 def make_heatmap(input_color_theme):
-    heatmap = px.imshow(tabla_calor, 
+    heatmap = px.imshow(df_mapa, 
                labels=dict(x="Hora del Día", y="Día de la Semana", color="Cantidad de Delitos"),
                x=tabla_calor.columns, 
                y=tabla_calor.index,
