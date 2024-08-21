@@ -57,14 +57,14 @@ with st.sidebar:
 # Manipulación de datos
 
 # Asegurar el orden correcto de los días de la semana
-# orden_dias_semana = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO', 'DOMINGO']
+orden_dias_semana = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO', 'DOMINGO']
 # df_mapa['DIA_SEMANA'] = pd.Categorical(df_mapa['DIA_SEMANA'], categories=orden_dias_semana, ordered=True)
 
 # Asegurar el orden correcto de las horas de la semana
 # orden_horas = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
 # df_mapa['HORA'] = pd.Categorical(df_mapa['HORA'], categories=orden_horas, ordered=True)
 
-df_mapa['total_delitos'] = pd.to_numeric(df_mapa['total_delitos'], errors='coerce')
+# df_mapa['total_delitos'] = pd.to_numeric(df_mapa['total_delitos'], errors='coerce')
 
 # Crear una tabla pivotada para contar la cantidad de delitos por día de la semana y hora
 # tabla_calor = df_mapa.pivot_table(index='DIA_SEMANA', columns='HORA', values='total_delitos', aggfunc='sum').fillna(0)
@@ -76,7 +76,7 @@ df_mapa['total_delitos'] = pd.to_numeric(df_mapa['total_delitos'], errors='coerc
 # Heatmap
 def make_heatmap(input_df, input_y, input_x, input_color, input_color_theme):
     heatmap = alt.Chart(input_df).mark_rect().encode(
-            y=alt.Y(f'{input_y}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
+            y=alt.Y(f'{input_y}:O', sort=orden_dias_semana, axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
             x=alt.X(f'{input_x}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
             color=alt.Color(f'max({input_color}):Q',
                              legend=None,
