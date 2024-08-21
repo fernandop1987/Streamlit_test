@@ -117,7 +117,7 @@ def make_bars(input_df, input_color_theme):
     bars.update_layout(
         xaxis_title='Barrio',
         yaxis_title='Delitos por mil habitantes',
-        xaxis={'categoryorder':'total descending'}  # Asegurar que las barras se ordenen correctamente
+        xaxis={'categoryorder':'total descending'},  # Asegurar que las barras se ordenen correctamente
         template='plotly_dark'  # Usar un tema oscuro para mayor impacto visual (opcional)
 ) 
     return bars
