@@ -85,7 +85,7 @@ def make_choropleth(input_df, input_id, input_column, input_color_theme):
 # Dashboard Main Panel
 col = st.columns((1.5, 4.5, 2), gap='medium')
 
-with col[0]:
+
 
 
 ### $
