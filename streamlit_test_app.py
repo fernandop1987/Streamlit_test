@@ -68,6 +68,8 @@ df_mapa['HORA'] = pd.Categorical(df_mapa['HORA'], categories=orden_horas, ordere
 # Crear una tabla pivotada para contar la cantidad de delitos por día de la semana y hora
 tabla_calor = df_mapa.pivot_table(index='DIA_SEMANA', columns='HORA', values='total_delitos', aggfunc='sum').fillna(0)
 
+# Convertir los valores a numéricos
+tabla_calor = tabla_calor.apply(pd.to_numeric, errors='coerce')
 
 
 #######################
