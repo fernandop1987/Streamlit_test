@@ -169,7 +169,7 @@ with col[1]:
     st.markdown('#### Delitos según día y hora')
     
     heatmap = make_heatmap(df_mapa, 'DIA_SEMANA', 'HORA', 'total_delitos', selected_color_theme)
-    st.plotly_chart(heatmap, use_container_width=True)
+    st.altair_chart(heatmap, use_container_width=True)
 
     bars = make_bars(df_uy2, selected_color_theme)
     st.plotly_chart(bars, use_container_width=True)
