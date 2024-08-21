@@ -5,6 +5,7 @@ import pandas as pd
 import geopandas as gpd
 import altair as alt
 import plotly.express as px
+import shapely
 
 #######################
 # Page configuration
