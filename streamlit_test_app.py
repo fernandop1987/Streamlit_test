@@ -67,18 +67,26 @@ def make_heatmap(input_df, input_y, input_x, input_color, input_color_theme):
 
 # Choropleth map
 def make_choropleth(input_df):
-    ### $
-    choropleth = px.choropleth_mapbox(input_df, geojson=input_df.__geo_interface__, 
-                                      locations='BARRIO_MONTEVIDEO',  
-                                      featureidkey="properties.BARRIO_MONTEVIDEO", 
-                                      color='ratio',  
-                                      mapbox_style="carto-positron",
-                                      color_continuous_scale="Reds",
-                                      zoom=10,
-                                      center={"lat": -34.9011, "lon": -56.1645}, 
-                                      opacity=0.8,
-                                      labels={'ratio': 'Delitos por mil habitantes'} 
-                              )
+    # Convertir a GeoJSON si es necesario
+    geojson_data = input_df.__geo_interface__ if hasattr(input_df, '__geo_interface__') else None
+    
+    if geojson_data:
+        choropleth = px.choropleth_mapbox(
+            input_df, 
+            geojson=geojson_data,
+            locations='BARRIO_MONTEVIDEO',  
+            featureidkey="properties.BARRIO_MONTEVIDEO", 
+            color='ratio',  
+            mapbox_style="carto-positron",
+            color_continuous_scale="Reds",
+            zoom=10,
+            center={"lat": -34.9011, "lon": -56.1645}, 
+            opacity=0.8,
+            labels={'ratio': 'Delitos por mil habitantes'} 
+        )
+    else:
+        st.error("Error: No se pudo generar el geojson a partir del DataFrame.")
+
     choropleth.update_layout(
         template='plotly_dark',
         plot_bgcolor='rgba(0, 0, 0, 0)',
@@ -87,6 +95,7 @@ def make_choropleth(input_df):
         height=350
     )
     return choropleth
+
 
 
 ### $
