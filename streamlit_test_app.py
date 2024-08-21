@@ -57,8 +57,8 @@ with st.sidebar:
 # Manipulación de datos
 
 # Asegurar el orden correcto de los días de la semana
-orden_dias_semana = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO', 'DOMINGO']
-df_mapa['DIA_SEMANA'] = pd.Categorical(df_mapa['DIA_SEMANA'], categories=orden_dias_semana, ordered=True)
+# orden_dias_semana = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO', 'DOMINGO']
+# df_mapa['DIA_SEMANA'] = pd.Categorical(df_mapa['DIA_SEMANA'], categories=orden_dias_semana, ordered=True)
 
 # Asegurar el orden correcto de las horas de la semana
 # orden_horas = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
