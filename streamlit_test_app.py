@@ -11,7 +11,7 @@ from shapely import wkt
 #######################
 # Page configuration
 st.set_page_config(
-    page_title="El Crimen en Montevideo",
+    page_title="Delitos en Montevideo",
     page_icon="",
     layout="wide",
     initial_sidebar_state="expanded")
@@ -41,7 +41,7 @@ df_mapa = pd.read_csv('data/tabla_calor.csv')
 #######################
 # Sidebar
 with st.sidebar:
-    st.title('El Crimen en Montevideo')
+    st.title('Delitos en Montevideo')
     
     year_list = list(df_reshaped.year.unique())[::-1]
     
