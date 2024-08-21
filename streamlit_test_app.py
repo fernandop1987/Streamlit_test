@@ -82,7 +82,7 @@ def make_choropleth(input_df, input_color_theme):
             locations='BARRIO_MONTEVIDEO',  
             featureidkey="properties.BARRIO_MONTEVIDEO", 
             color='ratio',  
-            mapbox_style="white-bg",
+            mapbox_style="carto-darkmatter",
             color_continuous_scale=input_color_theme,
             zoom=10,
             center={"lat": -34.9011, "lon": -56.1645}, 
@@ -101,7 +101,26 @@ def make_choropleth(input_df, input_color_theme):
     )
     return choropleth
 
+# Barras
+def make_bars(input_df, input_color_theme):
+    bars = px.bar(
+        input_df,
+        x='BARRIO_MONTEVIDEO',  # Eje X: nombres de los barrios
+        y='ratio',  # Eje Y: número total de delitos
+        color='ratio',  # Colorear las barras según el número de delitos
+        color_continuous_scale=input_color_theme,  # Escala de colores (rojo para representar peligro)
+        labels={'ratio': 'Delitos por mil habitantes', 'BARRIO_MONTEVIDEO': 'Barrio'},  # Etiquetas de los ejes
+        title='Barrios más peligrosos'  # Título del gráfico
+)
 
+# Personalizar el diseño
+    bars.update_layout(
+        xaxis_title='Barrio',
+        yaxis_title='Delitos por mil habitantes',
+        xaxis={'categoryorder':'total descending'}  # Asegurar que las barras se ordenen correctamente
+        template='plotly_dark'  # Usar un tema oscuro para mayor impacto visual (opcional)
+) 
+    return bars
 
 ### $
 
@@ -129,6 +148,10 @@ with col[1]:
     
     heatmap = make_heatmap(df_reshaped, 'year', 'states', 'population', selected_color_theme)
     st.altair_chart(heatmap, use_container_width=True)
+
+    bars = make_bars(df_uy2, selected_color_theme)
+    st.plotly_chart(bars, use_container_width=True)
+    
     
 
 
