@@ -11,8 +11,8 @@ from shapely import wkt
 #######################
 # Page configuration
 st.set_page_config(
-    page_title="US Population Dashboard",
-    page_icon="🏂",
+    page_title="El Crimen en Montevideo",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded")
 
@@ -21,7 +21,6 @@ alt.themes.enable("dark")
 
 #######################
 # Load data
-df_reshaped = pd.read_csv('data/us-population-2010-2019-reshaped.csv')
 
 # Cargar el archivo CSV usando pandas
 df_uy = pd.read_csv('data/geo_filtrado.csv')
