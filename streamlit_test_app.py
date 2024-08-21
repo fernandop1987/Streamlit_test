@@ -87,7 +87,7 @@ def make_heatmap(input_df, input_y, input_x, input_color_theme):
         ).configure_axis(
         labelFontSize=12,
         titleFontSize=12
-
+        )
 # Personalizar el gráfico
     heatmap.update_layout(
         title="Mapa de Calor de Delitos por Día de la Semana y Hora",
