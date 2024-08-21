@@ -21,13 +21,8 @@ alt.themes.enable("dark")
 #######################
 # Load data
 df_reshaped = pd.read_csv('data/us-population-2010-2019-reshaped.csv')
-df_uy = pd.read_csv('data/geo_filtrado.csv')
+df_uy = gpd.read_csv('data/geo_filtrado.csv')
 
-# Convertir el DataFrame en un GeoDataFrame
-df_uy2 = gpd.GeoDataFrame(df_uy, geometry='geo')
-
-# Establecer el sistema de referencia de coordenadas (CRS) como WGS 84 (EPSG:4326)
-df_uy2.set_crs(epsg=4326, inplace=True)
 
 
 #######################
@@ -120,7 +115,7 @@ col = st.columns((1, 6, 1), gap='medium')
 with col[1]:
     st.markdown('#### Delitos según barrios de Montevideo')
     
-    choropleth = make_choropleth(df_uy2)
+    choropleth = make_choropleth(df_uy)
     st.plotly_chart(choropleth, use_container_width=True)
     
     heatmap = make_heatmap(df_reshaped, 'year', 'states', 'population', selected_color_theme)
