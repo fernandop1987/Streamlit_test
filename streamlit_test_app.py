@@ -61,13 +61,13 @@ orden_dias_semana = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABAD
 df_mapa['DIA_SEMANA'] = pd.Categorical(df_mapa['DIA_SEMANA'], categories=orden_dias_semana, ordered=True)
 
 # Asegurar el orden correcto de las horas de la semana
-orden_horas = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
-df_mapa['HORA'] = pd.Categorical(df_mapa['HORA'], categories=orden_horas, ordered=True)
+# orden_horas = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
+# df_mapa['HORA'] = pd.Categorical(df_mapa['HORA'], categories=orden_horas, ordered=True)
 
 df_mapa['total_delitos'] = pd.to_numeric(df_mapa['total_delitos'], errors='coerce')
 
 # Crear una tabla pivotada para contar la cantidad de delitos por día de la semana y hora
-tabla_calor = df_mapa.pivot_table(index='DIA_SEMANA', columns='HORA', values='total_delitos', aggfunc='sum').fillna(0)
+# tabla_calor = df_mapa.pivot_table(index='DIA_SEMANA', columns='HORA', values='total_delitos', aggfunc='sum').fillna(0)
 
 
 #######################
