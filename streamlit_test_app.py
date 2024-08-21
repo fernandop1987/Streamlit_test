@@ -82,7 +82,7 @@ def make_choropleth(input_df, input_color_theme):
             locations='BARRIO_MONTEVIDEO',  
             featureidkey="properties.BARRIO_MONTEVIDEO", 
             color='ratio',  
-            mapbox_style="carto-positron",
+            mapbox_style="white-bg",
             color_continuous_scale=input_color_theme,
             zoom=10,
             center={"lat": -34.9011, "lon": -56.1645}, 
