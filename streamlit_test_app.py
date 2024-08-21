@@ -41,7 +41,7 @@ df_mapa = pd.read_csv('data/tabla_calor.csv')
 #######################
 # Sidebar
 with st.sidebar:
-    st.title('🏂 US Population Dashboard')
+    st.title('El Crimen en Montevideo')
     
     year_list = list(df_reshaped.year.unique())[::-1]
     
