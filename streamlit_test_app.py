@@ -82,7 +82,7 @@ def make_heatmap(input_color_theme):
                color_continuous_scale=input_color_theme)
 
 # Personalizar el gráfico
-    fig.update_layout(
+    heatmap.update_layout(
         title="Mapa de Calor de Delitos por Día de la Semana y Hora",
         xaxis_nticks=24  # Ajustar para mostrar todas las horas
 )
@@ -164,7 +164,7 @@ with col[1]:
     choropleth = make_choropleth(df_uy2, selected_color_theme)
     st.plotly_chart(choropleth, use_container_width=True)
 
-    st.markdown('#### Delitos día y hora')
+    st.markdown('#### Delitos según día y hora')
     
     heatmap = make_heatmap(selected_color_theme)
     st.plotly_chart(heatmap, use_container_width=True)
