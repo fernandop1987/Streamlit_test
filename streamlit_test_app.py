@@ -34,6 +34,9 @@ df_uy['geo'] = df_uy['geo'].apply(wkt.loads)
 df_uy2 = gpd.GeoDataFrame(df_uy, geometry='geo')
 df_uy2.set_crs(epsg=4326, inplace=True)
 
+# Data frame para el mapa de calor
+df_mapa = pd.read_csv('data/tabla_calor.csv')
+
 #######################
 # Sidebar
 with st.sidebar:
@@ -50,24 +53,39 @@ with st.sidebar:
 
 
 #######################
+
+# Manipulación de datos
+
+# Asegurar el orden correcto de los días de la semana
+orden_dias_semana = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO', 'DOMINGO']
+df_mapa['DIA_SEMANA'] = pd.Categorical(df_mapa['DIA_SEMANA'], categories=orden_dias_semana, ordered=True)
+
+# Asegurar el orden correcto de las horas de la semana
+orden_horas = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
+df_mapa['HORA'] = pd.Categorical(df_mapa['HORA'], categories=orden_horas, ordered=True)
+
+
+# Crear una tabla pivotada para contar la cantidad de delitos por día de la semana y hora
+tabla_calor = df_mapa.pivot_table(index='DIA_SEMANA', columns='HORA', values='total_delitos', aggfunc='sum').fillna(0)
+
+
+
+#######################
 # Plots
 
 # Heatmap
-def make_heatmap(input_df, input_y, input_x, input_color, input_color_theme):
-    heatmap = alt.Chart(input_df).mark_rect().encode(
-            y=alt.Y(f'{input_y}:O', axis=alt.Axis(title="Year", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
-            x=alt.X(f'{input_x}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
-            color=alt.Color(f'max({input_color}):Q',
-                             legend=None,
-                             scale=alt.Scale(scheme=input_color_theme)),
-            stroke=alt.value('black'),
-            strokeWidth=alt.value(0.25),
-        ).properties(width=900
-        ).configure_axis(
-        labelFontSize=12,
-        titleFontSize=12
-        ) 
-    # height=300
+def make_heatmap(input_color_theme):
+    heatmap = px.imshow(tabla_calor, 
+               labels=dict(x="Hora del Día", y="Día de la Semana", color="Cantidad de Delitos"),
+               x=tabla_calor.columns, 
+               y=tabla_calor.index,
+               color_continuous_scale=input_color_theme)
+
+# Personalizar el gráfico
+    fig.update_layout(
+        title="Mapa de Calor de Delitos por Día de la Semana y Hora",
+        xaxis_nticks=24  # Ajustar para mostrar todas las horas
+)
     return heatmap
 
 # Choropleth map
@@ -145,9 +163,11 @@ with col[1]:
     
     choropleth = make_choropleth(df_uy2, selected_color_theme)
     st.plotly_chart(choropleth, use_container_width=True)
+
+    st.markdown('#### Delitos día y hora')
     
-    heatmap = make_heatmap(df_reshaped, 'year', 'states', 'population', selected_color_theme)
-    st.altair_chart(heatmap, use_container_width=True)
+    heatmap = make_heatmap(selected_color_theme)
+    st.plotly_chart(heatmap, use_container_width=True)
 
     bars = make_bars(df_uy2, selected_color_theme)
     st.plotly_chart(bars, use_container_width=True)
