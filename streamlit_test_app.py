@@ -159,19 +159,20 @@ with col[1]:
     <style>
     .big-font {
     font-size:50px !important;
-    color: #2D82B7;
-    font-family: 'Montserrat', sans-serif;
+    color: #FEFAF5;
+    font-family: 'Montserrat Black 900', sans-serif;
     }
     .sub-font {
     font-size:25px !important;
-    color: #C3C0BC;
+    color: #2D82B7;
     font-family: 'Courier New', Courier, monospace;
     }
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<p class="big-font">Este es un texto grande y colorido.</p>', unsafe_allow_html=True)
-    st.markdown('<p class="sub-font">Este es un subtítulo personalizado.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-font">Este es un subtítulo personalizado</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">Este es un texto grande y colorido</p>', unsafe_allow_html=True)
+    
 
     
     st.subheader("Subtítulo de la Sección")
