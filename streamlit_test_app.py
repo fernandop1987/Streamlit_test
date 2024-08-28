@@ -121,8 +121,7 @@ def make_bars(input_df, input_color_theme):
         y='ratio',  # Eje Y: número total de delitos
         color='ratio',  # Colorear las barras según el número de delitos
         color_continuous_scale=input_color_theme,  # Escala de colores (rojo para representar peligro)
-        labels={'ratio': 'Delitos por mil habitantes', 'BARRIO_MONTEVIDEO': 'Barrio'},  # Etiquetas de los ejes
-        title='Barrios más peligrosos'  # Título del gráfico
+        labels={'ratio': 'Delitos por mil habitantes', 'BARRIO_MONTEVIDEO': 'Barrio'}  # Etiquetas de los ejes
 )
 
 # Personalizar el diseño
@@ -163,6 +162,9 @@ with col[1]:
     heatmap = make_heatmap(df_mapa, 'DIA_SEMANA', 'HORA', 'total_delitos', selected_color_theme)
     st.altair_chart(heatmap, use_container_width=True)
 
+
+    st.markdown('#### Barrios más peligrosos')
+    
     bars = make_bars(df_uy2, selected_color_theme)
     st.plotly_chart(bars, use_container_width=True)
     
