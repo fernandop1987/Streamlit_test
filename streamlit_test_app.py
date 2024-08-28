@@ -174,7 +174,8 @@ with col[1]:
     st.markdown('<p class="big-font">Delitos en Montevideo</p>', unsafe_allow_html=True)
     #st.subheader("Subtítulo de la Sección")
     #st.title("Título Principal de la App")
-    st.text("Analizamos la prevalencia de la criminalidad según tipo de delito en los distintos barrios de Montevideo entre 2014 y 2024")
+    st.text("Prevalencia de la criminalidad según tipo de delito")
+    st.text("en los distintos barrios de Montevideo entre 2014 y 2024")
     
     st.write("")  # Espacio en blanco
     st.write("")  # Espacio en blanco
@@ -191,7 +192,7 @@ with col[1]:
     ######
     
     st.markdown('#### Delitos según día y hora')
-    st.text("Este es un comentario o texto adicional.")
+    st.text("Las denuncias de delitos se concentran entre las 20 y 22hs.")
     heatmap = make_heatmap(df_mapa, 'DIA_SEMANA', 'HORA', 'total_delitos', selected_color_theme)
     st.altair_chart(heatmap, use_container_width=True)
 
