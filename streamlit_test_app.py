@@ -152,6 +152,11 @@ col = st.columns((0.5, 7, 0.5), gap='medium')
 ### $
 
 with col[1]:
+
+
+    st.title("Título Principal de la App")
+    st.subheader("Subtítulo de la Sección")
+
     st.markdown('#### Delitos según barrios de Montevideo')
     
     choropleth = make_choropleth(df_uy2, selected_color_theme)
