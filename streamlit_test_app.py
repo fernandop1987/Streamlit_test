@@ -157,17 +157,29 @@ with col[1]:
     st.title("Título Principal de la App")
     st.subheader("Subtítulo de la Sección")
 
+    st.write("")  # Espacio en blanco
+    -----------------------------------
     st.markdown('#### Delitos según barrios de Montevideo')
     
     choropleth = make_choropleth(df_uy2, selected_color_theme)
     st.plotly_chart(choropleth, use_container_width=True)
 
+
+    st.write("")  # Espacio en blanco
+    st.write("---")  # Línea divisoria
+    st.write("")  # Espacio en blanco
+    -----------------------------------
+    
     st.markdown('#### Delitos según día y hora')
     
     heatmap = make_heatmap(df_mapa, 'DIA_SEMANA', 'HORA', 'total_delitos', selected_color_theme)
     st.altair_chart(heatmap, use_container_width=True)
 
-
+    st.write("")  # Espacio en blanco
+    st.write("---")  # Línea divisoria
+    st.write("")  # Espacio en blanco
+    -----------------------------------
+    
     st.markdown('#### Barrios más peligrosos')
     
     bars = make_bars(df_uy2, selected_color_theme)
