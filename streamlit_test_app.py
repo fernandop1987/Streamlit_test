@@ -154,9 +154,30 @@ col = st.columns((0.5, 7, 0.5), gap='medium')
 with col[1]:
 
 
-    st.title("Título Principal de la App")
-    st.subheader("Subtítulo de la Sección")
 
+    st.markdown("""
+    <style>
+    .big-font {
+    font-size:50px !important;
+    color: #2D82B7;
+    font-family: 'Montserrat', sans-serif;
+    }
+    .sub-font {
+    font-size:25px !important;
+    color: #C3C0BC;
+    font-family: 'Courier New', Courier, monospace;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<p class="big-font">Este es un texto grande y colorido.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-font">Este es un subtítulo personalizado.</p>', unsafe_allow_html=True)
+
+    
+    st.subheader("Subtítulo de la Sección")
+    st.title("Título Principal de la App")
+    st.text("Este es un comentario o texto adicional.")
+    st.write("")  # Espacio en blanco
     st.write("")  # Espacio en blanco
     ######
     st.markdown('#### Delitos según barrios de Montevideo')
