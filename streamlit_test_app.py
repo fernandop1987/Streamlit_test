@@ -174,8 +174,8 @@ with col[1]:
     st.markdown('<p class="big-font">Delitos en Montevideo</p>', unsafe_allow_html=True)
     #st.subheader("Subtítulo de la Sección")
     #st.title("Título Principal de la App")
-    st.text("Prevalencia de la criminalidad según tipo de delito")
-    st.text("en los distintos barrios de Montevideo entre 2014 y 2024")
+    #st.text("Prevalencia de la criminalidad según tipo de delito en los distintos barrios de Montevideo entre 2014 y 2024")
+    
     
     st.write("")  # Espacio en blanco
     st.write("")  # Espacio en blanco
