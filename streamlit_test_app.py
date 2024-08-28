@@ -170,15 +170,12 @@ with col[1]:
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<p class="sub-font">Este es un subtítulo personalizado</p>', unsafe_allow_html=True)
-    st.markdown("<h1 style='margin-top: 0px;'>Título sin espacio arriba</h1>", unsafe_allow_html=True)
-    st.markdown('<p class="big-font">Este es un texto grande y colorido</p>', unsafe_allow_html=True)
-    
-
-    
+    st.markdown('<p class="sub-font">ANÁLISIS DEL CRIMEN</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">Delitos en Montevideo</p>', unsafe_allow_html=True)
     #st.subheader("Subtítulo de la Sección")
     #st.title("Título Principal de la App")
-    st.text("Este es un comentario o texto adicional.")
+    st.text("Analizamos la prevalencia de la criminalidad según tipo de delito en los distintos barrios de Montevideo entre 2014 y 2024")
+    
     st.write("")  # Espacio en blanco
     st.write("")  # Espacio en blanco
     ######
