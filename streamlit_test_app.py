@@ -158,7 +158,7 @@ with col[1]:
     st.subheader("Subtítulo de la Sección")
 
     st.write("")  # Espacio en blanco
-    -----------------------------------
+    ######
     st.markdown('#### Delitos según barrios de Montevideo')
     
     choropleth = make_choropleth(df_uy2, selected_color_theme)
@@ -168,7 +168,7 @@ with col[1]:
     st.write("")  # Espacio en blanco
     st.write("---")  # Línea divisoria
     st.write("")  # Espacio en blanco
-    -----------------------------------
+    ######
     
     st.markdown('#### Delitos según día y hora')
     
@@ -178,7 +178,7 @@ with col[1]:
     st.write("")  # Espacio en blanco
     st.write("---")  # Línea divisoria
     st.write("")  # Espacio en blanco
-    -----------------------------------
+    ######
     
     st.markdown('#### Barrios más peligrosos')
     
