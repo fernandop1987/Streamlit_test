@@ -158,25 +158,25 @@ with col[1]:
     st.markdown("""
     <style>
     .big-font {
-    font-size:50px !important;
+    font-size:60px !important;
     color: #FEFAF5;
     font-family: 'Montserrat Black 900', sans-serif;
     }
     .sub-font {
-    font-size:25px !important;
+    font-size:30px !important;
     color: #2D82B7;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Montserrat', sans-serif;
     }
     </style>
     """, unsafe_allow_html=True)
 
     st.markdown('<p class="sub-font">Este es un subtítulo personalizado</p>', unsafe_allow_html=True)
-    st.markdown('<p class="big-font">Este es un texto grande y colorido</p>', unsafe_allow_html=True)
+    st.markdown("<h1 style='margin-top: 0px;'>título sin espacio arriba</h1>", '<p class="big-font">Este es un texto grande y colorido</p>', unsafe_allow_html=True)
     
 
     
-    st.subheader("Subtítulo de la Sección")
-    st.title("Título Principal de la App")
+    #st.subheader("Subtítulo de la Sección")
+    #st.title("Título Principal de la App")
     st.text("Este es un comentario o texto adicional.")
     st.write("")  # Espacio en blanco
     st.write("")  # Espacio en blanco
