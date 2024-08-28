@@ -160,7 +160,7 @@ with col[1]:
     st.write("")  # Espacio en blanco
     ######
     st.markdown('#### Delitos según barrios de Montevideo')
-    
+    st.text("Este es un comentario o texto adicional.")
     choropleth = make_choropleth(df_uy2, selected_color_theme)
     st.plotly_chart(choropleth, use_container_width=True)
 
@@ -171,7 +171,7 @@ with col[1]:
     ######
     
     st.markdown('#### Delitos según día y hora')
-    
+    st.text("Este es un comentario o texto adicional.")
     heatmap = make_heatmap(df_mapa, 'DIA_SEMANA', 'HORA', 'total_delitos', selected_color_theme)
     st.altair_chart(heatmap, use_container_width=True)
 
@@ -181,7 +181,7 @@ with col[1]:
     ######
     
     st.markdown('#### Barrios más peligrosos')
-    
+    st.text("Este es un comentario o texto adicional.")
     bars = make_bars(df_uy2, selected_color_theme)
     st.plotly_chart(bars, use_container_width=True)
     
