@@ -171,7 +171,8 @@ with col[1]:
     """, unsafe_allow_html=True)
 
     st.markdown('<p class="sub-font">Este es un subtítulo personalizado</p>', unsafe_allow_html=True)
-    st.markdown("<h1 style='margin-top: 0px;'>título sin espacio arriba</h1>", '<p class="big-font">Este es un texto grande y colorido</p>', unsafe_allow_html=True)
+    st.markdown("<h1 style='margin-top: 0px;'>Título sin espacio arriba</h1>", unsafe_allow_html=True)
+    st.markdown('<p class="big-font">Este es un texto grande y colorido</p>', unsafe_allow_html=True)
     
 
     
