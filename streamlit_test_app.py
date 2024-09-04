@@ -136,6 +136,10 @@ def make_bars(input_df, input_color_theme):
         yaxis={'categoryorder':'total ascending'},  # Asegurar que las barras se ordenen correctamente
         template='plotly_dark'  # Usar un tema oscuro para mayor impacto visual (opcional)
 ) 
+
+# Reducir el tamaño de la fuente de las etiquetas en el eje Y
+    bars.update_yaxes(tickfont=dict(size=10))  # Cambia '10' por el tamaño de fuente deseado
+    
     return bars
 
 ### $
