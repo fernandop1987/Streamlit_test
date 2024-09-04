@@ -43,11 +43,11 @@ df_mapa = pd.read_csv('data/tabla_calor.csv')
 with st.sidebar:
     st.title('Delitos en Montevideo')
     
-    year_list = list(df_reshaped.year.unique())[::-1]
+    year_list = list(df_uy2.AÑO.unique())[::-1]
     
     selected_year = st.selectbox('Select a year', year_list)
-    df_selected_year = df_reshaped[df_reshaped.year == selected_year]
-    df_selected_year_sorted = df_selected_year.sort_values(by="population", ascending=False)
+    df_selected_year = df_uy2[df_reshaped.AÑO == selected_year]
+    df_selected_year_sorted = df_selected_year.sort_values(by="BARRIO_MONTEVIDEO", ascending=False)
 
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
