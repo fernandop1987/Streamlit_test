@@ -103,7 +103,7 @@ def make_choropleth(input_df, input_color_theme):
             zoom=10,
             center={"lat": -34.9011, "lon": -56.1645}, 
             opacity=0.8,
-            labels={'ratio': ''} 
+            labels={'ratio': 'Delitos por 100K/hab.', 'BARRIO_MONTEVIDEO': 'Barrio'} 
         )
     else:
         st.error("Error: No se pudo generar el geojson a partir del DataFrame.")
