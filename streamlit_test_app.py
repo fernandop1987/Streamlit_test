@@ -22,7 +22,6 @@ alt.themes.enable("dark")
 #######################
 # Load data
 
-df_reshaped = pd.read_csv('data/us-population-2010-2019-reshaped.csv')
 
 # Cargar el archivo CSV usando pandas
 df_uy = pd.read_csv('data/geo_filtrado.csv')
