@@ -113,7 +113,7 @@ def make_choropleth(input_df, input_color_theme):
         plot_bgcolor='rgba(0, 0, 0, 0)',
         paper_bgcolor='rgba(0, 0, 0, 0)',
         margin=dict(l=0, r=0, t=0, b=0),
-        height=350
+        height=500
     )
     return choropleth
 
@@ -126,7 +126,7 @@ def make_bars(input_df, input_color_theme):
         color='ratio',  # Colorear las barras según el número de delitos
         color_continuous_scale=input_color_theme,  # Escala de colores (rojo para representar peligro)
         labels={'ratio': 'Delitos por 100K/hab.', 'BARRIO_MONTEVIDEO': 'Barrio'},  # Etiquetas de los ejes
-        height=700  # Cambia este valor para ajustar la altura (en píxeles)
+        height=800  # Cambia este valor para ajustar la altura (en píxeles)
 )
 
 # Personalizar el diseño
