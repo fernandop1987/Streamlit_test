@@ -186,7 +186,7 @@ with col[1]:
     ######
     st.markdown('#### Delitos según barrios de Montevideo')
     st.text("Este es un comentario o texto adicional.")
-    choropleth = make_choropleth(df_selected_year, selected_color_theme)
+    choropleth = make_choropleth(df_selected_delito, selected_color_theme)
     st.plotly_chart(choropleth, use_container_width=True)
 
 
@@ -207,7 +207,7 @@ with col[1]:
     
     st.markdown('#### Barrios más peligrosos')
     st.text("Este es un comentario o texto adicional.")
-    bars = make_bars(df_selected_year, selected_color_theme)
+    bars = make_bars(df_selected_delito, selected_color_theme)
     st.plotly_chart(bars, use_container_width=True)
     
     
