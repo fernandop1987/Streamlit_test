@@ -126,6 +126,7 @@ def make_bars(input_df, input_color_theme):
         color='ratio',  # Colorear las barras según el número de delitos
         color_continuous_scale=input_color_theme,  # Escala de colores (rojo para representar peligro)
         labels={'ratio': 'Delitos por 100K/hab.', 'BARRIO_MONTEVIDEO': 'Barrio'}  # Etiquetas de los ejes
+        height=600  # Cambia este valor para ajustar la altura (en píxeles)
 )
 
 # Personalizar el diseño
