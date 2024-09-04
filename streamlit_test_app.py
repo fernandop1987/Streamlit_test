@@ -125,14 +125,14 @@ def make_bars(input_df, input_color_theme):
         y='BARRIO_MONTEVIDEO',  # Eje Y: nombres de los barrios
         color='ratio',  # Colorear las barras según el número de delitos
         color_continuous_scale=input_color_theme,  # Escala de colores (rojo para representar peligro)
-        labels={'ratio': '', 'BARRIO_MONTEVIDEO': ''}  # Etiquetas de los ejes
+        labels={'ratio': 'Delitos por 100K/hab.', 'BARRIO_MONTEVIDEO': 'Barrio'}  # Etiquetas de los ejes
 )
 
 # Personalizar el diseño
     bars.update_layout(
         xaxis_title='',
         yaxis_title='',
-        yaxis={'categoryorder':'total descending'},  # Asegurar que las barras se ordenen correctamente
+        yaxis={'categoryorder':'total ascending'},  # Asegurar que las barras se ordenen correctamente
         template='plotly_dark'  # Usar un tema oscuro para mayor impacto visual (opcional)
 ) 
     return bars
