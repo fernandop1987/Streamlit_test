@@ -103,7 +103,7 @@ def make_choropleth(input_df, input_color_theme):
             zoom=10,
             center={"lat": -34.9011, "lon": -56.1645}, 
             opacity=0.8,
-            #labels={'ratio': 'Delitos por cada cien mil habitantes'} 
+            labels={'ratio': ''} 
         )
     else:
         st.error("Error: No se pudo generar el geojson a partir del DataFrame.")
@@ -125,14 +125,14 @@ def make_bars(input_df, input_color_theme):
         y='BARRIO_MONTEVIDEO',  # Eje Y: nombres de los barrios
         color='ratio',  # Colorear las barras según el número de delitos
         color_continuous_scale=input_color_theme,  # Escala de colores (rojo para representar peligro)
-        #labels={'ratio': 'Delitos por cada cien mil habitantes', 'BARRIO_MONTEVIDEO': 'Barrio'}  # Etiquetas de los ejes
+        labels={'ratio': '', 'BARRIO_MONTEVIDEO': ''}  # Etiquetas de los ejes
 )
 
 # Personalizar el diseño
     bars.update_layout(
-        #xaxis_title='Barrio',
-        #yaxis_title='Delitos por cien mil habitantes',
-        xaxis={'categoryorder':'total descending'},  # Asegurar que las barras se ordenen correctamente
+        xaxis_title='',
+        yaxis_title='',
+        yaxis={'categoryorder':'total descending'},  # Asegurar que las barras se ordenen correctamente
         template='plotly_dark'  # Usar un tema oscuro para mayor impacto visual (opcional)
 ) 
     return bars
