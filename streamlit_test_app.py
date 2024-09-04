@@ -138,7 +138,7 @@ def make_bars(input_df, input_color_theme):
 ) 
 
 # Reducir el tamaño de la fuente de las etiquetas en el eje Y
-    bars.update_yaxes(tickfont=dict(size=8))  # tamaño de fuente deseado
+    bars.update_yaxes(tickfont=dict(size=10))  # tamaño de fuente deseado
     
     return bars
 
