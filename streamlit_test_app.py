@@ -46,7 +46,7 @@ with st.sidebar:
     year_list = list(df_uy2.AÑO.unique())[::-1]
     
     selected_year = st.selectbox('Select a year', year_list)
-    df_selected_year = df_uy2[df_reshaped.AÑO == selected_year]
+    df_selected_year = df_uy2[df_uy2.AÑO == selected_year]
     df_selected_year_sorted = df_selected_year.sort_values(by="BARRIO_MONTEVIDEO", ascending=False)
 
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
