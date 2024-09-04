@@ -48,8 +48,10 @@ with st.sidebar:
     df_selected_year = df_uy2[df_uy2.AÑO == selected_year]
     df_selected_year_sorted = df_selected_year.sort_values(by="BARRIO_MONTEVIDEO", ascending=False)
 
-    #selected_delito = st.selectbox('Selecciona el delito', tipo)
-    #df_selected_delito = df_uy2[df_uy2.DELITO == selected_delito]
+    tipo = list(df_uy2.DELITO.unique())[::-1]
+    
+    selected_delito = st.selectbox('Selecciona el delito', tipo)
+    df_selected_delito = df_selected_year[df_selected_year.DELITO == selected_delito]
     
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
