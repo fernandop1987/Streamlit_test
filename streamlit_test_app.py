@@ -126,7 +126,7 @@ def make_bars(input_df, input_color_theme):
         color='ratio',  # Colorear las barras según el número de delitos
         color_continuous_scale=input_color_theme,  # Escala de colores (rojo para representar peligro)
         labels={'ratio': 'Delitos por 100K/hab.', 'BARRIO_MONTEVIDEO': 'Barrio'},  # Etiquetas de los ejes
-        height=800  # Cambia este valor para ajustar la altura (en píxeles)
+        height=900  # Cambia este valor para ajustar la altura (en píxeles)
 )
 
 # Personalizar el diseño
@@ -138,7 +138,7 @@ def make_bars(input_df, input_color_theme):
 ) 
 
 # Reducir el tamaño de la fuente de las etiquetas en el eje Y
-    bars.update_yaxes(tickfont=dict(size=10))  # Cambia '10' por el tamaño de fuente deseado
+    bars.update_yaxes(tickfont=dict(size=8))  # tamaño de fuente deseado
     
     return bars
 
